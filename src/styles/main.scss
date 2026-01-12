@@ -1,0 +1,161 @@
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --border: #111111;
+  --muted: #666666;
+  --selected: #0b62ff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+#app {
+  min-height: 100%;
+  display: flex;
+}
+
+.page {
+  width: min(1100px, calc(100% - 32px));
+  margin: 24px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 140px 1fr;
+  gap: 20px;
+}
+
+.panel {
+  border: 3px solid var(--border);
+  background: #fff;
+}
+
+.panel__content {
+  height: 100%;
+  padding: 16px;
+}
+
+.panel__content--top-left {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 10px;
+}
+
+.panel__content--top-right {
+  display: grid;
+  place-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  align-content: start;
+}
+
+.strip {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.counter {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.item {
+  position: relative;
+  border: 3px solid var(--border);
+  background: #fff;
+  color: inherit;
+  padding: 10px 8px;
+  min-height: 54px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.item--small {
+  min-height: 40px;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+.item--selected {
+  border-color: var(--selected);
+}
+
+.item__name {
+  text-align: center;
+  line-height: 1.1;
+}
+
+.item__badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 26px;
+  height: 26px;
+  border: 3px solid var(--selected);
+  background: #fff;
+  color: var(--selected);
+  font-weight: 700;
+  font-size: 12px;
+  display: grid;
+  place-items: center;
+}
+
+.selected-big {
+  width: min(260px, 100%);
+  height: min(110px, 100%);
+  border: 3px solid var(--border);
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  text-align: center;
+}
+
+.selected-big--placeholder {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.selected-big__label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.selected-big__name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+@media (max-width: 800px) {
+  .page {
+    grid-template-columns: 1fr;
+    grid-template-rows: 140px 140px 1fr 1fr;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
